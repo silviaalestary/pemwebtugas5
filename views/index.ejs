@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Node JS - MySQL</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {background-color: #f2f2f2;}
+        tr:hover {background-color: #ddd;}
+        h2{
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            margin-bottom: 10px;
+        }
+        form input {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar user/Pengguna</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Telepon</th>
+            <th>Aksi</th>
+        </tr>
+        <% users.forEach(Pengguna => {%> 
+        <tr>
+            <td><%= Pengguna.id %></td>
+            <td><%= Pengguna.name %></td>
+            <td><%= Pengguna.email %></td>
+            <td><%= Pengguna.phone %></td>
+            <td>
+                <a href="/edit/<%= Pengguna.id%>">Edit</a>
+                <a href="/delete/<%= Pengguna.id%>">Hapus</a>
+            </td>
+        </tr>
+    <% }) %>
+    </table>
+
+    <h2>Tambah pengguna baru</h2>
+    <form action="/add" method="post">
+            <label for="Name">Nama:</label>
+            <input type="text" id="name" name="name" required><br> 
+            <label for="Email">Email:</label>
+            <input type="email" name="email" id="email"><br>
+            <label for="phone">Telepon:</label>
+            <input type="text" name="phone" id="phone"><br>
+            <button type="submit">Tambah</button>
+    </form>
+</body>
+</html>

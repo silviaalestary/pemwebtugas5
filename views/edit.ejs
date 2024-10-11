@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit data pengguna</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            margin-bottom: 10px;
+        }
+        form input {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Edit data pengguna</h2>
+    <form action="/update/<%= user.id%>" method="post">
+            <label for="Name">Nama:</label>
+            <input type="text" id="name" name="name" required value="<%= user.name %>"><br> 
+            <label for="Email">Email:</label>
+            <input type="email" name="email" id="email" value="<%= user.email %>"><br>
+            <label for="phone">Telepon:</label>
+            <input type="text" name="phone" id="phone" value="<%= user.phone %>"><br>
+            <button type="submit">Simpan</button>
+    </form>
+</body>
+</html>
